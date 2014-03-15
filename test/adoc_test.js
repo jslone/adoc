@@ -22,15 +22,21 @@ var adoc = require('../lib/adoc.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
+
+exports = {
+  parseText: function(test) {
     test.expect(1);
-    // tests here
-    test.equal(adoc.awesome(), 'awesome', 'should be awesome.');
-    test.done();
-  },
+    var doc =
+      '/*\n' +
+      ' * myName\n' +
+      ' *\n' +
+      ' * this is my desc\n' +
+      ' * @attr1 key1\n' +
+      ' * @attr2 key2 and 2\n' +
+      ' * @attr3 key3\n' +
+      ' * and 3\n' +
+      ' */';
+
+    console.log(adoc.parseText(doc));
+  }
 };
