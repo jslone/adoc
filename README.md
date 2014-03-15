@@ -1,6 +1,6 @@
 # adoc
 
-A generic code documentation parser.
+A language extendible documentation parser. By abstracting formal syntax and alphabets, adoc can be extended to parse a variety of inline code documentation, and by treating that documentation as data it can be easily translated to a variety of formats with templating.
 
 ## Getting Started
 Install the module with: `npm install adoc`
