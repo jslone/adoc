@@ -18,12 +18,10 @@ class Syntax
 
 class CSyntax extends Syntax
   sanitize: (str) ->
-    console.log 'unsanitized:\n' + str
     noNoise = str.replace (new RegExp '^\\s*' + (escape @alphabet.comment.noise), 'gm'), ''
-    console.log 'no noise:\n' + noNoise
-    normWhite = noNoise.replace /\s+/, ' '
-    console.log 'norm whitespace:\n' + normWhite
-    normWhite
+    noNewLine = noNoise.replace /\n/g, ' '
+    normWhite = noNewLine.replace /\s+/, ' '
+    normWhite.trim()
 
   fromText: (args,cb) ->
     regexp = new RegExp escape(@alphabet.comment.start) + '(.|[\\r\\n])*?' + escape(@alphabet.comment.end), 'g'
